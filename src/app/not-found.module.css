@@ -12,11 +12,12 @@
 }
 
 .code {
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-family: var(--font-heading);
   font-weight: 300;
-  color: var(--border);
+  color: oklch(0.28 0.04 273);    /* Dim indigo — visible against dark bg */
   margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
 }
 
 .title {

@@ -1,21 +1,20 @@
 .dialog {
   position: fixed;
   inset: 0;
-  width: min(440px, calc(100vw - 2rem));
+  width: min(420px, calc(100vw - 2rem));
   margin: auto;
   padding: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-xl);
+  background: var(--surface-2);
+  box-shadow: 0 4px 8px oklch(0 0 0 / 0.6);  /* ≤8px blur: no ghost-card violation */
   z-index: var(--z-modal);
-  animation: fadeIn var(--transition-base) ease-out;
+  animation: modalIn var(--transition-base) var(--ease-out);
 }
 
 .dialog::backdrop {
-  background: oklch(0.14 0.01 285 / 0.35);
-  backdrop-filter: blur(2px);
-  animation: backdropFadeIn var(--transition-base) ease-out;
+  background: oklch(0 0 0 / 0.60);
+  animation: backdropIn var(--transition-base) ease-out;
 }
 
 .content {
@@ -26,26 +25,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .title {
   font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .closeBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border: none;
   background: transparent;
   color: var(--ink-muted);
   border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast) var(--ease-out),
+    color var(--transition-fast);
 }
 
 .closeBtn:hover {
@@ -58,12 +60,12 @@
   outline-offset: 2px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes backdropFadeIn {
+@keyframes backdropIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
