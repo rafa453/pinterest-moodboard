@@ -6,10 +6,17 @@ interface Params {
   params: { slug: string }
 }
 
+// Slug hanya boleh berisi huruf kecil, angka, dan dash (format nanoid)
+const SLUG_REGEX = /^[a-z0-9_-]{4,16}$/
+
 // GET /api/boards/[slug]
 export async function GET(request: NextRequest, { params }: Params) {
   try {
     const { slug } = params
+
+    if (!SLUG_REGEX.test(slug)) {
+      return NextResponse.json({ error: 'Board tidak ditemukan' }, { status: 404 })
+    }
 
     const board = await prisma.board.findUnique({
       where: { slug },
