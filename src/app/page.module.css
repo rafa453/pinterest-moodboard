@@ -1,0 +1,31 @@
+.main {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  line-height: 1.6;
+  max-width: 60ch;
+}

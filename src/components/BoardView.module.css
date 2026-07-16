@@ -1,0 +1,25 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: var(--space-6) var(--space-4);
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.emptyText {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
